@@ -19,12 +19,9 @@ import com.cykj.springbootweb.services.DepartmentService;
 @Controller
 @RequestMapping("/departmentControl")
 public class DepartmentController {
-
+	//注入
 	@Autowired
 	public DepartmentService departmentService;
-	//添加问题测试git
-	//dfdf
-	//DFDFD
 	
     @RequestMapping("list")
     @ResponseBody
