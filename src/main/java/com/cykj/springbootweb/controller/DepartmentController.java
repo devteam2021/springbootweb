@@ -23,7 +23,7 @@ public class DepartmentController {
 	//账号B修改内容
 	@Autowired
 	public DepartmentService departmentService;
-	
+	//账号B再次修改
     @RequestMapping("list")
     @ResponseBody
 	public Object getDepartment() {
@@ -35,6 +35,7 @@ public class DepartmentController {
 		list.setMsg("");
 		return list;
 	}
+    
     @RequestMapping(value = "save", method = RequestMethod.POST)
 	@ResponseBody
 	public Object save(HttpServletRequest request) {
