@@ -20,7 +20,7 @@ import com.cykj.springbootweb.services.DepartmentService;
 @RequestMapping("/departmentControl")
 public class DepartmentController {
 
-	//账号B修改内容
+	//账号A修改的内容
 	@Autowired
 	public DepartmentService departmentService;
 	
