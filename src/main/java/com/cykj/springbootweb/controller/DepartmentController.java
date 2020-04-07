@@ -22,7 +22,7 @@ public class DepartmentController {
 
 	@Autowired
 	public DepartmentService departmentService;
-	
+	//测试Git上传
 	
     @RequestMapping("list")
     @ResponseBody
