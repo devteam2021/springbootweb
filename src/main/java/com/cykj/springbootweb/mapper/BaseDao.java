@@ -2,14 +2,14 @@ package com.cykj.springbootweb.mapper;
 
 import java.io.Serializable;
 
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
 
 
 /**
  * 基础数据库操作类
  * 
  */
-@Repository
+@Mapper
 public interface BaseDao<T> {
 	
 	/**
