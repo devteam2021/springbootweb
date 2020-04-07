@@ -23,9 +23,6 @@ public class DepartmentController {
 	//账号B修改内容
 	@Autowired
 	public DepartmentService departmentService;
-	//添加问题测试git
-	//dfdf
-	//DFDFD
 	
     @RequestMapping("list")
     @ResponseBody

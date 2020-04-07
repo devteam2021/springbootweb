@@ -17,33 +17,33 @@ public interface BaseDao<T> {
 	 * @param entity
 	 * @return
 	 */
-	public void save(T entity);
+    void save(T entity);
 	
 	/**
 	 * 更新对象
 	 * @param entity
 	 * @return
 	 */
-	public T update(T entity);
+    T update(T entity);
 	
 	/**
 	 * 根据id获取对象
 	 * @param id
 	 * @return
 	 */
-	public T get(Serializable id);
+    T get(Serializable id);
 	
 	/**
 	 * 根据id删除对象
 	 * @param id
 	 */
-	public void delete(Serializable id);
+    void delete(Serializable id);
 	
 	/**
 	 * 删除对象
 	 * @param entity
 	 */
-	public void remove(T entity);
+    void remove(T entity);
 	
 
 

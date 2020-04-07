@@ -61,7 +61,7 @@ layui.use('table', function(){
           });
       break;
       
-    };
+    }
   });
   
   
