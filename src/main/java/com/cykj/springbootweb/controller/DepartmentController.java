@@ -22,7 +22,7 @@ public class DepartmentController {
 
 	@Autowired
 	public DepartmentService departmentService;
-	//账号B再次修改ww
+	
     @RequestMapping("list")
     @ResponseBody
 	public Object getDepartment() {
