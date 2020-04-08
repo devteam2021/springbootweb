@@ -17,7 +17,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	
 
 	public T get(Serializable id) {		
-		return (T)baseDao.get(id);
+		return baseDao.get(id);
 	}
 
 	public void save(T entity) {

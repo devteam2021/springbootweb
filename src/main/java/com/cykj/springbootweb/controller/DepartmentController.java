@@ -22,8 +22,6 @@ public class DepartmentController {
 
 	@Autowired
 	public DepartmentService departmentService;
-	
-	//dd
     @RequestMapping("list")
     @ResponseBody
 	public Object getDepartment() {
@@ -35,6 +33,7 @@ public class DepartmentController {
 		list.setMsg("");
 		return list;
 	}
+    
     @RequestMapping(value = "save", method = RequestMethod.POST)
 	@ResponseBody
 	public Object save(HttpServletRequest request) {

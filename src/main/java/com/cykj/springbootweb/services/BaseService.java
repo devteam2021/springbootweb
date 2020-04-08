@@ -9,35 +9,35 @@ public interface BaseService<T> {
 	 * @param entity
 	 * @return
 	 */
-	public void save(T entity);
+    void save(T entity);
 	
 	/**
 	 * 更新
 	 * @param entity
 	 * @return
 	 */
-	public T update(T entity);
+    T update(T entity);
 	/**
 	 * 根据id获取对象
 	 * @param id
 	 * @param dataType 主键的类型 {I,S,L}-->{Integer,String,Long}
 	 * @return
 	 */
-	public T get(Serializable id);
+    T get(Serializable id);
 	
 	/**
 	 * 根据ID删除对象
 	 * @param id
 	 * @return
 	 */
-	public void delete(Serializable id);
+    void delete(Serializable id);
 	
 	/**
 	 * 删除指定对象
 	 * @param entity
 	 * @return
 	 */
-	public void remove(T entity);
+    void remove(T entity);
 	
 
 	
