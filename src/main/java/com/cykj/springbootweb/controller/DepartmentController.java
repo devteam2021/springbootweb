@@ -23,7 +23,7 @@ public class DepartmentController {
 	@Autowired
 	public DepartmentService departmentService;
 	
-	
+	//dd
     @RequestMapping("list")
     @ResponseBody
 	public Object getDepartment() {
