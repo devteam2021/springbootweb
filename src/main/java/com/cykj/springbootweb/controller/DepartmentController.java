@@ -61,4 +61,12 @@ public class DepartmentController {
     public ModelAndView showView() {
         return new ModelAndView("departmentList");
     }
+    /**
+     * 返回页面
+     * @return
+     */
+    @RequestMapping("/showView1")
+    public ModelAndView showView1() {
+        return new ModelAndView("departmentList");
+    }
 }
