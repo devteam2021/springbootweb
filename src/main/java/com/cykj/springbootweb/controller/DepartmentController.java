@@ -77,4 +77,13 @@ public class DepartmentController {
     public ModelAndView showView() {
         return new ModelAndView("departmentList");
     }
+
+	/**
+	 * 返回页面
+	 * @return
+	 */
+	@RequestMapping("/showView3")
+	public ModelAndView showView3() {
+		return new ModelAndView("departmentList");
+	}
 }
