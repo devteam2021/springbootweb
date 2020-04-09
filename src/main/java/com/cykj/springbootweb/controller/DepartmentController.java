@@ -22,6 +22,8 @@ public class DepartmentController {
 
 	@Autowired
 	public DepartmentService departmentService;
+	//ddfdfdf
+	//账号B再次修改ww   sfasdfadf sdf sdf sdf
     @RequestMapping("list")
     @ResponseBody
 	public Object getDepartment() {
@@ -33,7 +35,21 @@ public class DepartmentController {
 		list.setMsg("");
 		return list;
 	}
-    
+//sdafasdfasdfa
+	//sadfasdsafasdfasdf
+
+	@RequestMapping("list1")
+	@ResponseBody
+	public Object getDepartment1() {
+		List<Department> data=departmentService.query();
+		LayUIData<Department> list=new LayUIData<Department>();
+		list.setCode("0");
+		list.setCount(data.size()+"");
+		list.setData(data);
+		list.setMsg("");
+		return list;
+	}
+
     @RequestMapping(value = "save", method = RequestMethod.POST)
 	@ResponseBody
 	public Object save(HttpServletRequest request) {
