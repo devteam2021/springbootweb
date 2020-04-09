@@ -19,11 +19,9 @@ import com.cykj.springbootweb.services.DepartmentService;
 @Controller
 @RequestMapping("/departmentControl")
 public class DepartmentController {
-	//阿斯顿发斯蒂芬
 	@Autowired
 	public DepartmentService departmentService;
-	//ddfdfdf
-	//账号B再次修改ww   sfasdfadf sdf sdf sdf
+	
     @RequestMapping("list")
     @ResponseBody
 	public Object getDepartment() {
