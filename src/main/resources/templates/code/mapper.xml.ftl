@@ -26,7 +26,7 @@
 	<select id="get"
 		parameterType="${package.Entity}.${entity}"
 		resultType="${package.Entity}.${entity}">
-		select
+		select id,
 			<#list table.fields as field>
 			v.${field.propertyName}<#if field_has_next>,</#if>
 		    </#list>
@@ -42,7 +42,7 @@
 	<select id="getById"
 		parameterType="${package.Entity}.${entity}"
 		resultType="${package.Entity}.${entity}">
-		select
+		select id,
 			<#list table.fields as field>
 			v.${field.propertyName}<#if field_has_next>,</#if>
 		    </#list>
@@ -50,27 +50,27 @@
 			${table.name} v
 		where 
 			1 = 1
-		and v.${package.ModuleName}_id = <#noparse>#{</#noparse>${package.ModuleName}_id<#noparse>}</#noparse>
+		and v.id = <#noparse>#{</#noparse>id<#noparse>}</#noparse>
 		limit 1
 	</select>
 	
 	<update id="update"
 		parameterType="${package.Entity}.${entity}">
 		update ${table.name} v
-		set v.${package.ModuleName}_id = <#noparse>#{</#noparse>${package.ModuleName}_id<#noparse>}</#noparse>
+		set 
 		<#list table.fields as field>
 		<#if field.propertyName == "${package.ModuleName}_id">
 		<#else>
-		<if test="${field.propertyName} != null and ${field.propertyName} != ''"> , v.${field.propertyName} = <#noparse>#{</#noparse>${field.propertyName}<#noparse>}</#noparse></if>
+		<if test="${field.propertyName} != null and ${field.propertyName} != ''">  v.${field.propertyName} = <#noparse>#{</#noparse>${field.propertyName}<#noparse>}</#noparse>  <#if field_has_next>,</#if></if>
 		</#if>
 		</#list>
-		where v.${package.ModuleName}_id = <#noparse>#{</#noparse>${package.ModuleName}_id<#noparse>}</#noparse>
+		where v.id = <#noparse>#{</#noparse>id<#noparse>}</#noparse>
 	</update>
 	
 	<delete id="del"
 		parameterType="java.lang.String">
 		delete from ${table.name}
-		where ${package.ModuleName}_id = <#noparse>#{</#noparse>${package.ModuleName}_id<#noparse>}</#noparse>
+		where id = <#noparse>#{</#noparse>id<#noparse>}</#noparse>
 	</delete>
 	
 	

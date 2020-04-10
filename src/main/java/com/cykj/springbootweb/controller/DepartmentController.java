@@ -1,11 +1,13 @@
 package com.cykj.springbootweb.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.cykj.springbootweb.entity.Department;
 import com.cykj.springbootweb.entity.LayUIData;
 import com.cykj.springbootweb.services.DepartmentService;
+import com.cykj.springbootweb.utils.ResultData;
 
 @Controller
 @RequestMapping("/departmentControl")
@@ -36,16 +39,28 @@ public class DepartmentController {
 		return list;
 	}
 
-	@RequestMapping(value = "save", method = RequestMethod.POST)
+	/**
+	 * 添加及保存操作
+	 */
+	@RequestMapping(value="/save")
 	@ResponseBody
-	public Object save(HttpServletRequest request) {
-		String name = request.getParameter("name");
-		String remark = request.getParameter("remark");
-		Department data = new Department();
-		data.setName(name);
-		data.setRemark(remark);
-		departmentService.save(data);
-		return "OK";
+	public Map<String, Object> save(HttpServletRequest request,HttpServletResponse response,
+			Department department){
+		try {
+			
+			
+			
+			
+			departmentService.save(department);
+		}catch (DataIntegrityViolationException e) {
+			e.printStackTrace();
+			return ResultData.resultData("08","违反唯一性约束,帐号已存在");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResultData.resultData("01");
+		}
+		return ResultData.resultData("00");
+		
 	}
 
 	/**

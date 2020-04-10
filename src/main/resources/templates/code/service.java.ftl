@@ -17,12 +17,12 @@ interface ${table.serviceName} : ${superServiceClass}<${entity}>
 <#else>
 public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
 
-	public void add(${entity} ${package.ModuleName});
-	public void update(${entity} ${package.ModuleName});
-	public void del(String ${package.ModuleName}_id);
-	public ${entity} getById(String ${package.ModuleName}_id);
-	public List<${entity}> get(${entity} ${package.ModuleName});
-	public List<${entity}> get(${entity} ${package.ModuleName}, int pageNum, int pageSize);
+	public void add(${entity} ${controllerMappingHyphen});
+	public void update(${entity} ${controllerMappingHyphen});
+	public void del(String id);
+	public ${entity} getById(String id);
+	public List<${entity}> get(${entity} ${controllerMappingHyphen});
+	public List<${entity}> get(${entity} ${controllerMappingHyphen}, int pageNum, int pageSize);
 
 }
 </#if>

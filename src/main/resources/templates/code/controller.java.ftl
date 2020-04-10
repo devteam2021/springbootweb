@@ -29,7 +29,7 @@ import ${superControllerClassPackage};
 <#else>
 @Controller
 </#if>
-@RequestMapping("<#if package.ModuleName??>/${package.ModuleName}</#if>/<#if controllerMappingHyphenStyle??>${controllerMappingHyphen}<#else>${table.entityPath}</#if>")
+@RequestMapping("/<#if controllerMappingHyphenStyle??>${controllerMappingHyphen}<#else>${table.entityPath}</#if>Controller")
 <#if kotlin>
 class ${table.controllerName}<#if superControllerClass??> : ${superControllerClass}()</#if>
 <#else>
@@ -40,44 +40,44 @@ public class ${table.controllerName} {
 </#if>
 	
 	@Autowired
-	${table.serviceName} ${package.ModuleName}Service;
+	${table.serviceName} ${controllerMappingHyphen}Service;
 	
 	@RequestMapping("/getByPage")
 	@NotNull(str="pageNum,pageSize")
 	@LoginRequired
-	public Object getByPage(${entity} ${package.ModuleName}, int pageNum, int pageSize) {
-		List<${entity}> ${package.ModuleName}List = ${package.ModuleName}Service.get(${package.ModuleName}, pageNum, pageSize);
-		PageInfo<${entity}> pageInfo = new PageInfo<>(${package.ModuleName}List);
+	public Object getByPage(${entity} ${controllerMappingHyphen}, int pageNum, int pageSize) {
+		List<${entity}> ${controllerMappingHyphen}List = ${controllerMappingHyphen}Service.get(${controllerMappingHyphen}, pageNum, pageSize);
+		PageInfo<${entity}> pageInfo = new PageInfo<>(${controllerMappingHyphen}List);
 		return ResultUtil.success(pageInfo);
 	}
 	
 	@RequestMapping("/get")
 	@LoginRequired
-	public Object get(${entity} ${package.ModuleName}) {
-		List<${entity}> ${package.ModuleName}List = ${package.ModuleName}Service.get(${package.ModuleName});
-		return ResultUtil.success(${package.ModuleName}List);
+	public Object get(${entity} ${controllerMappingHyphen}) {
+		List<${entity}> ${controllerMappingHyphen}List = ${controllerMappingHyphen}Service.get(${controllerMappingHyphen});
+		return ResultUtil.success(${controllerMappingHyphen}List);
 	}
 	
 	@RequestMapping("/add")
 	@LoginRequired
-	public Object add(${entity} ${package.ModuleName}, @CurrentUser User currentUser) {
-		${package.ModuleName}Service.add(${package.ModuleName});
+	public Object add(${entity} ${controllerMappingHyphen}, @CurrentUser User currentUser) {
+		${controllerMappingHyphen}Service.add(${controllerMappingHyphen});
 		return ResultUtil.success();
 	}
 	
 	@RequestMapping("/del")
 	@LoginRequired
-	@NotNull(str="${package.ModuleName}_id")
-	public Object del(String ${package.ModuleName}_id, @CurrentUser User currentUser) {
-		${package.ModuleName}Service.del(${package.ModuleName}_id);
+	@NotNull(str="id")
+	public Object del(String id, @CurrentUser User currentUser) {
+		${controllerMappingHyphen}Service.del(id);
 		return ResultUtil.success();
 	}
 	
 	@RequestMapping("/update")
 	@LoginRequired
-	@NotNull(str="${package.ModuleName}_id")
-	public Object update(${entity} ${package.ModuleName}, @CurrentUser User currentUser) {
-		${package.ModuleName}Service.update(${package.ModuleName});
+	@NotNull(str="id")
+	public Object update(${entity} ${controllerMappingHyphen}, @CurrentUser User currentUser) {
+		${controllerMappingHyphen}Service.update(${controllerMappingHyphen});
 		return ResultUtil.success();
 	}
 }

@@ -51,7 +51,7 @@ public class CodeGenerator {
         gc.setAuthor("zhaohy");
         //是否打开输出目录
         gc.setOpen(false);
-        // gc.setSwagger2(true); 实体属性 Swagger2 注解
+        gc.setSwagger2(true); //实体属性 Swagger2 注解
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
@@ -93,6 +93,23 @@ public class CodeGenerator {
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
+        
+        focList.add(new FileOutConfig("/templates/code/manage.jsp.ftl") {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
+                return projectPath + "/src/main/webapp/pages/admin/"+tableInfo.getEntityName() 
+                        + "/" + tableInfo.getEntityName() + "Manage.jsp";
+            }
+        });
+        focList.add(new FileOutConfig("/templates/code/manage.js.ftl") {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
+                return projectPath + "/src/main/webapp/pages/admin/"+tableInfo.getEntityName() 
+                        + "/" + tableInfo.getEntityName() + "Manage.js";
+            }
+        });
         /*
         cfg.setFileCreate(new IFileCreate() {
             @Override
@@ -117,6 +134,7 @@ public class CodeGenerator {
         templateConfig.setService("/templates/code/service.java");
         templateConfig.setServiceImpl("/templates/code/serviceImpl.java");
         templateConfig.setController("/templates/code/controller.java");
+        
         templateConfig.setXml(null);
         mpg.setTemplate(templateConfig);
 

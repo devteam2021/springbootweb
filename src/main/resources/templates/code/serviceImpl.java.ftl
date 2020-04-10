@@ -26,40 +26,40 @@ open class ${table.serviceImplName} : ${superServiceImplClass}<${table.mapperNam
 public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}> implements ${table.serviceName} {
 
 	@Autowired
-	${table.mapperName} ${package.ModuleName}Mapper;
+	${table.mapperName} ${controllerMappingHyphen}Mapper;
 	
 	@Override
-	public void add(${entity} ${package.ModuleName}) {
-		${package.ModuleName}Mapper.add(${package.ModuleName});
+	public void add(${entity} ${controllerMappingHyphen}) {
+		${controllerMappingHyphen}Mapper.add(${controllerMappingHyphen});
 	}
 
 	@Override
-	public void del(String ${package.ModuleName}_id) {
-		${package.ModuleName}Mapper.del(${package.ModuleName}_id);
+	public void del(String id) {
+		${controllerMappingHyphen}Mapper.del(id);
 	}
 
 	@Override
-	public void update(${entity} ${package.ModuleName}) {
-		${package.ModuleName}Mapper.update(${package.ModuleName});
+	public void update(${entity} ${controllerMappingHyphen}) {
+		${controllerMappingHyphen}Mapper.update(${controllerMappingHyphen});
 	}
 	
 	
 	@Override
-	public ${entity} getById(String ${package.ModuleName}_id) {
-		return ${package.ModuleName}Mapper.getById(${package.ModuleName}_id);
+	public ${entity} getById(String id) {
+		return ${controllerMappingHyphen}Mapper.getById(id);
 	}
 
 	@Override
-	public List<${entity}> get(${entity} ${package.ModuleName}) {
-		List<${entity}> ${package.ModuleName}List = ${package.ModuleName}Mapper.get(${package.ModuleName});
-		return ${package.ModuleName}List;
+	public List<${entity}> get(${entity} ${controllerMappingHyphen}) {
+		List<${entity}> ${controllerMappingHyphen}List = ${controllerMappingHyphen}Mapper.get(${controllerMappingHyphen});
+		return ${controllerMappingHyphen}List;
 	}
 
 	@Override
-	public List<${entity}> get(${entity} ${package.ModuleName}, int pageNum, int pageSize) {
+	public List<${entity}> get(${entity} ${controllerMappingHyphen}, int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
-		List<${entity}> ${package.ModuleName}List = ${package.ModuleName}Mapper.get(${package.ModuleName});
-		return ${package.ModuleName}List;
+		List<${entity}> ${controllerMappingHyphen}List = ${controllerMappingHyphen}Mapper.get(${controllerMappingHyphen});
+		return ${controllerMappingHyphen}List;
 	}
 
 }
