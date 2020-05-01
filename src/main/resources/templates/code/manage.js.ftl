@@ -30,7 +30,7 @@
 		
 		var url=null;
 		if(type=='save')
-			url = '/<#if controllerMappingHyphenStyle??>${controllerMappingHyphen}<#else>${table.entityPath}</#if>Controller/save';
+			url = '/<#if controllerMappingHyphenStyle??>${controllerMappingHyphen}<#else>${table.entityPath}</#if>Controller/insert';
 		else
 			url = '/<#if controllerMappingHyphenStyle??>${controllerMappingHyphen}<#else>${table.entityPath}</#if>Controller/update';
 		$('#layer_form').ajaxSubmit({   
