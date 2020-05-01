@@ -110,6 +110,8 @@
 	</dependencies>
 
 	<build>
+	<!--打包的文件名为test.war -->
+		<finalName>test</finalName>
 		<plugins>
 			<!--热部署插件 -->
 			<plugin>
