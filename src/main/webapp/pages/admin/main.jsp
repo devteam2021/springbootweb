@@ -13,7 +13,6 @@
 <title>极上动漫后台管理</title>
 </head>
 <body>
-	<jsp:include page="commons/commHead.jsp"></jsp:include>
 
 	<aside class="Hui-aside"> <input runat="server"
 		id="divScrollValue" type="hidden" value="" />

@@ -6,7 +6,7 @@
 	<groupId>com.cykj</groupId>
 	<artifactId>springbootweb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>springbootweb</name>
 	<url>http://maven.apache.org</url>
@@ -20,18 +20,18 @@
 		<version>2.0.1.RELEASE</version>
 	</parent>
 	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<!-- 添加这个依赖之后就可以创建一个web应用程序。starter poms部分可以引入所有需要在实际项目中使用的依赖。 spring-boot-starter-web依赖包含所有的spring-core, 
 				spring-web, spring-webmvc，嵌入的Tomcat server和其他web应用相关的库。 -->
 			<artifactId>spring-boot-starter-web</artifactId>
+			<!-- <exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions> -->
 		</dependency>
 
 		<dependency>
@@ -49,6 +49,7 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
+	
 		<!-- 数据库驱动 -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -85,7 +86,7 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-		
+
 		<!-- Swagger2 Begin -->
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -98,19 +99,33 @@
 			<version>2.9.2</version>
 		</dependency>
 		<!-- Swagger2 End -->
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<!-- <dependency> <groupId>commons-codec</groupId> <artifactId>commons-codec</artifactId> 
+			<version>1.6</version> </dependency> https://mvnrepository.com/artifact/org.apache.maven.shared/maven-shared-utils 
+			<dependency> <groupId>org.apache.maven.shared</groupId> <artifactId>maven-shared-utils</artifactId> 
+			<version>0.4</version> </dependency> -->
+
 
 
 	</dependencies>
 
 	<build>
 		<plugins>
-			<!-- spring-boot-maven-plugin插件就是打包spring boot应用的 -->
+			<!--热部署插件 -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<skipTests>true</skipTests>
+					<!--此处为自己的启动类 -->
+					<mainClass>com.cykj.springbootweb.App</mainClass>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

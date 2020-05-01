@@ -1,5 +1,7 @@
 server:
    port: 8501
+   #servlet:
+    #context-path: /dt
    address: 0.0.0.0 #启用外部IP访问
 spring:
    http:
